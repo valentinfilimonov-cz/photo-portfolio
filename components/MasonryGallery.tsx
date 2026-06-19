@@ -112,10 +112,13 @@ export default function MasonryGallery({ images }: Props) {
         }
 
         .lightbox img {
+          width: auto;
+          height: auto;
           max-width: 90%;
           max-height: 90%;
           margin: 0;
           border-radius: 10px;
+          object-fit: contain;
         }
 
         .prev,
