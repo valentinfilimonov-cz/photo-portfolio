@@ -1,15 +1,25 @@
 import Link from "next/link";
+import { getAllAlbums } from "@/content/albums/lib/albums";
 
 export default function AlbumsPage() {
+  const albums = getAllAlbums();
+
   return (
-    <div style={{ padding: 40 }}>
+    <main style={{ padding: 40 }}>
       <h1>Albums</h1>
 
-      <ul>
-        <li>
-          <Link href="/albums/travel">Travel</Link>
-        </li>
-      </ul>
-    </div>
+      {albums.length === 0 ? (
+        <p>No albums yet.</p>
+      ) : (
+        <ul>
+          {albums.map((album) => (
+            <li key={album.slug}>
+              <Link href={`/albums/${album.slug}`}>{album.title}</Link>
+              {album.description ? <p>{album.description}</p> : null}
+            </li>
+          ))}
+        </ul>
+      )}
+    </main>
   );
 }

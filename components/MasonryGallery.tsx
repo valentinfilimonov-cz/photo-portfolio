@@ -23,7 +23,6 @@ export default function MasonryGallery({ images }: Props) {
 
   return (
     <>
-      {/* Masonry grid */}
       <div className="masonry">
         {images.map((src, i) => (
           <img
@@ -35,30 +34,42 @@ export default function MasonryGallery({ images }: Props) {
         ))}
       </div>
 
-      {/* LIGHTBOX */}
       {index !== null && (
         <div className="lightbox" onClick={close}>
-          <button className="prev" onClick={(e) => { e.stopPropagation(); prev(); }}>
-            ‹
+          <button
+            aria-label="Previous image"
+            className="prev"
+            onClick={(event) => {
+              event.stopPropagation();
+              prev();
+            }}
+          >
+            &lt;
           </button>
 
           <img
             src={images[index]}
             alt=""
-            onClick={(e) => e.stopPropagation()}
+            onClick={(event) => event.stopPropagation()}
           />
 
-          <button className="next" onClick={(e) => { e.stopPropagation(); next(); }}>
-            ›
+          <button
+            aria-label="Next image"
+            className="next"
+            onClick={(event) => {
+              event.stopPropagation();
+              next();
+            }}
+          >
+            &gt;
           </button>
 
-          <button className="close" onClick={close}>
-            ✕
+          <button aria-label="Close image" className="close" onClick={close}>
+            x
           </button>
         </div>
       )}
 
-      {/* styles */}
       <style jsx>{`
         .masonry {
           column-count: 3;
@@ -93,7 +104,7 @@ export default function MasonryGallery({ images }: Props) {
         .lightbox {
           position: fixed;
           inset: 0;
-          background: rgba(0,0,0,0.9);
+          background: rgba(0, 0, 0, 0.9);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -107,7 +118,8 @@ export default function MasonryGallery({ images }: Props) {
           border-radius: 10px;
         }
 
-        .prev, .next {
+        .prev,
+        .next {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
@@ -119,8 +131,13 @@ export default function MasonryGallery({ images }: Props) {
           padding: 20px;
         }
 
-        .prev { left: 10px; }
-        .next { right: 10px; }
+        .prev {
+          left: 10px;
+        }
+
+        .next {
+          right: 10px;
+        }
 
         .close {
           position: absolute;

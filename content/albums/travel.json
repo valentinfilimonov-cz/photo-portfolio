@@ -1,0 +1,9 @@
+{
+  "title": "Travel",
+  "description": "Selected travel photographs.",
+  "cover": "/images/travel/1.JPG",
+  "images": [
+    "/images/travel/1.JPG",
+    "/images/travel/2.JPG"
+  ]
+}
