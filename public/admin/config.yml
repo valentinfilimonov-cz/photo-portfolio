@@ -2,7 +2,8 @@ backend:
   name: github
   repo: valentinfilimonov-cz/photo-portfolio
   branch: master
-  auth_type: implicit
+  base_url: https://photo-portfolio-mu.vercel.app
+  auth_endpoint: api/auth
 
 local_backend: true
 
