@@ -1,0 +1,43 @@
+backend:
+  name: github
+  repo: valentinfilimonov-cz/photo-portfolio
+  branch: main
+  auth_type: implicit
+
+site_url: http://localhost:3000
+
+media_folder: public/images
+public_folder: /images
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "albums"
+    label: "Albums"
+    folder: "content/albums"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+
+      - { 
+          label: "Description", 
+          name: "description", 
+          widget: "text", 
+          required: false 
+        }
+
+      - {
+          label: "Cover Image",
+          name: "cover",
+          widget: "image",
+          required: false
+        }
+
+      - {
+          label: "Images",
+          name: "images",
+          widget: "list",
+          field: { label: "Image", name: "image", widget: "image" }
+        }
