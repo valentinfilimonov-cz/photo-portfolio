@@ -1,8 +1,10 @@
 backend:
   name: github
   repo: valentinfilimonov-cz/photo-portfolio
-  branch: main
+  branch: master
   auth_type: implicit
+
+local_backend: true
 
 site_url: http://localhost:3000
 
@@ -17,15 +19,17 @@ collections:
     folder: "content/albums"
     create: true
     slug: "{{slug}}"
+    extension: "json"
     format: "json"
+
     fields:
       - { label: "Title", name: "title", widget: "string" }
 
-      - { 
-          label: "Description", 
-          name: "description", 
-          widget: "text", 
-          required: false 
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: false
         }
 
       - {
