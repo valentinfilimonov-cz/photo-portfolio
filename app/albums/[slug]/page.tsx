@@ -25,26 +25,24 @@ export default async function AlbumPage({ params }: Props) {
   }
 
   return (
-    <main style={{ padding: "40px" }}>
-      <h1
-        style={{
-          fontSize: "32px",
-          marginBottom: "12px",
-        }}
-      >
-        {album.title}
-      </h1>
+    <main className="page">
+      <div className="page-title">
+        <p className="eyebrow">Album</p>
+        <h1>{album.title}</h1>
 
-      {album.description ? (
-        <p style={{ maxWidth: "720px", marginBottom: "30px" }}>
-          {album.description}
-        </p>
-      ) : null}
+        {album.description ? (
+          <p>{album.description}</p>
+        ) : (
+          <p>
+            {album.images.length} photo{album.images.length === 1 ? "" : "s"}
+          </p>
+        )}
+      </div>
 
       {album.images.length > 0 ? (
         <MasonryGallery images={album.images} />
       ) : (
-        <p>This album does not have photos yet.</p>
+        <p className="empty-state">This album does not have photos yet.</p>
       )}
     </main>
   );

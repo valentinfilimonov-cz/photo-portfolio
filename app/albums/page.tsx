@@ -7,20 +7,37 @@ export default function AlbumsPage() {
   const albums = getAllAlbums();
 
   return (
-    <main style={{ padding: 40 }}>
-      <h1>Albums</h1>
+    <main className="page">
+      <div className="page-title">
+        <p className="eyebrow">Portfolio</p>
+        <h1>Albums</h1>
+        <p>
+          Browse the photo collections managed from the CMS. Each album is a
+          simple JSON entry in the project content folder.
+        </p>
+      </div>
 
       {albums.length === 0 ? (
-        <p>No albums yet.</p>
+        <p className="empty-state">No albums yet.</p>
       ) : (
-        <ul>
+        <div className="album-grid">
           {albums.map((album) => (
-            <li key={album.slug}>
-              <Link href={`/albums/${album.slug}`}>{album.title}</Link>
-              {album.description ? <p>{album.description}</p> : null}
-            </li>
+            <Link className="album-card" href={`/albums/${album.slug}`} key={album.slug}>
+              {album.cover ? (
+                <img src={album.cover} alt="" />
+              ) : (
+                <div className="album-placeholder" />
+              )}
+              <div>
+                <h2>{album.title}</h2>
+                <p>
+                  {album.description ||
+                    `${album.images.length} photo${album.images.length === 1 ? "" : "s"}`}
+                </p>
+              </div>
+            </Link>
           ))}
-        </ul>
+        </div>
       )}
     </main>
   );
