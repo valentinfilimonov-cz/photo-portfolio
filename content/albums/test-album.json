@@ -1,3 +1,6 @@
 {
-  "title": "Test Album"
+  "title": "Test Album",
+  "images": [
+    "/images/2026-03-13-14-38-13.jpg"
+  ]
 }
