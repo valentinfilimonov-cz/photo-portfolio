@@ -2,6 +2,8 @@ import MasonryGallery from "@/components/MasonryGallery";
 import { getAlbumBySlug, getAllAlbums } from "@/content/albums/lib/albums";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 type Props = {
   params: Promise<{
     slug: string;

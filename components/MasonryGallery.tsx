@@ -26,7 +26,7 @@ export default function MasonryGallery({ images }: Props) {
       <div className="masonry">
         {images.map((src, i) => (
           <img
-            key={src}
+            key={`${src}-${i}`}
             src={src}
             alt=""
             onClick={() => setIndex(i)}

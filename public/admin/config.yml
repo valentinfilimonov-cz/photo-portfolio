@@ -11,8 +11,6 @@ site_url: http://localhost:3000
 media_folder: public/images
 public_folder: /images
 
-publish_mode: editorial_workflow
-
 collections:
   - name: "albums"
     label: "Albums"
